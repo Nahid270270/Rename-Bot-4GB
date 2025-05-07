@@ -118,3 +118,8 @@ restart - Use This Command To Cancel All Process And Restart The Bot [Admins Onl
 - [PayPal](https://paypal.me/jishudeveloper/2.50USD)
 - [PhonePe](https://graph.org/file/6822df5af3a2e80637172.jpg)
 - [UPI](https://graph.org/file/b831109be4acff5c966d2.jpg)
+
+[![Deploy to Koyeb](https://www.koyeb.com/buttons/deploy.svg)](https://app.koyeb.com/deploy?type=git&repository=https://github.com/Nahid270270/Rename-Bot-4GB&branch=main&env[API_ID]=123456&env[API_HASH]=your_api_hash&env[BOT_TOKEN]=your_bot_token&env[DATABASE_URL]=your_mongo_url&env[STRING_SESSION]=your_string_session&env[ADMIN]=your_user_id&env[LOG_CHANNEL]=-1001234567890)
+git add koyeb.yaml README.md
+git commit -m "Added Deploy to Koyeb support"
+git push origin main
