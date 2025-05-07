@@ -1,0 +1,10 @@
+name: rename-bot-4gb
+
+services:
+  - name: renamebot
+    git:
+      url: https://github.com/Nahid270270/Rename-Bot-4GB
+      branch: main
+    build_command: ""
+    run_command: python3 bot.py
+    buildpack: heroku/python
