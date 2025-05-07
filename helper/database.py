@@ -40,7 +40,8 @@ def total_size(chat_id, total_size, now_file_size):
 def insert(chat_id):
     user_id = int(chat_id)
     user_det = {"_id": user_id, "file_id": None, "caption": None, "daily": 0, "date": 0,
-                "uploadlimit": 5368709120, "used_limit": 0, "usertype": "Free", "prexdate": None}
+                "uploadlimit": 5368709120, "used_limit": 0, "usertype": "Free", "prexdate": None,
+                "metadata": False, "metadata_code": "By @Madflix_Bots"}
     try:
         dbcol.insert_one(user_det)
     except:
@@ -54,6 +55,20 @@ def addthumb(chat_id, file_id):
 
 def delthumb(chat_id):
     dbcol.update_one({"_id": chat_id}, {"$set": {"file_id": None}})
+
+
+
+
+# ============= Metadata Function Code =============== #
+
+def setmeta(chat_id, bool_meta):
+    dbcol.update_one({"_id": chat_id}, {"$set": {"metadata": bool_meta}})
+
+def setmetacode(chat_id, metadata_code):
+    dbcol.update_one({"_id": chat_id}, {"$set": {"metadata_code": metadata_code}})
+
+# ============= Metadata Function Code =============== #
+
 
 
 # Add Caption Data
@@ -98,8 +113,18 @@ def find(chat_id):
             caption = i["caption"]
         except:
             caption = None
+        try:
+            metadata = i["metadata"]
+        except:
+            metadata = False
+        try:
+            metadata_code = i["metadata_code"]
+        except:
+            metadata_code = None
+            
 
-        return [file, caption]
+
+        return [file, caption, metadata, metadata_code]
 
 def getid():
     values = []
